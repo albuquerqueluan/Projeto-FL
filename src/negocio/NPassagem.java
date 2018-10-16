@@ -7,7 +7,7 @@ package negocio;
 
 /**
  *
- * @author roans
+ * @author Luan
  */
 public class NPassagem {
     

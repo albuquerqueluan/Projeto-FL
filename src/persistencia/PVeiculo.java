@@ -7,7 +7,7 @@ package persistencia;
 
 /**
  *
- * @author roans
+ * @author Luan
  */
 public class PVeiculo {
     
