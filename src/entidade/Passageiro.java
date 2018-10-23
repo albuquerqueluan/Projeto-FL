@@ -7,8 +7,37 @@ package entidade;
 
 /**
  *
- * @author roans
+ * @author Flavio Portes
  */
 public class Passageiro {
     
+    private int identificador;
+    private String CPF;
+    private String nome;
+  
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+    
+    public void setCPF(String CPF)
+    {
+        this.CPF = CPF;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
 }

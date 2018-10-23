@@ -7,7 +7,7 @@ package entidade;
 
 /**
  *
- * @author roans
+ * @author Luan
  */
 public class Veiculo {
     

@@ -5,6 +5,8 @@
  */
 package apresentacao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author roans
@@ -16,8 +18,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
-
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,21 +31,95 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pnlPrincipal = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        CadMotorista = new javax.swing.JMenuItem();
+        cadPassageiro = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        Fechar = new javax.swing.JMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("SISTEMA FL");
+
+        javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
+        pnlPrincipal.setLayout(pnlPrincipalLayout);
+        pnlPrincipalLayout.setHorizontalGroup(
+            pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlPrincipalLayout.setVerticalGroup(
+            pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jMenu1.setText("Cadastros");
+
+        CadMotorista.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.ALT_MASK));
+        CadMotorista.setText("Cadastrar Motorista");
+        CadMotorista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadMotoristaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(CadMotorista);
+
+        cadPassageiro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.ALT_MASK));
+        cadPassageiro.setText("Cadastrar Passageiro");
+        cadPassageiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadPassageiroActionPerformed(evt);
+            }
+        });
+        jMenu1.add(cadPassageiro);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Sair");
+
+        Fechar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        Fechar.setText("Fechar");
+        Fechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FecharActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Fechar);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
+    fechar();
+    }//GEN-LAST:event_FecharActionPerformed
+
+    private void CadMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadMotoristaActionPerformed
+        // TODO add your handling code here:
+    TelaCadMotorista janela = new TelaCadMotorista(pnlPrincipal);
+    pnlPrincipal.add(janela);
+    janela.setVisible(true);
+    }//GEN-LAST:event_CadMotoristaActionPerformed
+
+    private void cadPassageiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadPassageiroActionPerformed
+    TelaCadPassageiro janela = new TelaCadPassageiro(pnlPrincipal);
+    pnlPrincipal.add(janela);
+    janela.setVisible(true);
+    }//GEN-LAST:event_cadPassageiroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +157,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CadMotorista;
+    private javax.swing.JMenuItem Fechar;
+    private javax.swing.JMenuItem cadPassageiro;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JDesktopPane pnlPrincipal;
     // End of variables declaration//GEN-END:variables
+
+
+    private void fechar() {
+        try {
+            int resposta = JOptionPane.showConfirmDialog(null, "Confirma a saída do Sistema?", "SISTEMA FL", JOptionPane.YES_NO_OPTION);
+            if (resposta == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            }
+        }catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+        }
 }
