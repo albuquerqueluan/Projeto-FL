@@ -182,6 +182,9 @@ public class TelaCadPassageiro extends javax.swing.JInternalFrame {
 
             if(txtCPF.getText().isEmpty())
             throw new Exception ("É necessário preencher o CPF!");
+            
+            if(txtNome.getText().isEmpty())
+            throw new Exception ("É necessário preencher o Nome!");
 
             Passageiro tipo = new Passageiro();
 
@@ -196,7 +199,6 @@ public class TelaCadPassageiro extends javax.swing.JInternalFrame {
             NPassageiro negocio = new NPassageiro();
 
             negocio.salvar(tipo);
-
             JOptionPane.showMessageDialog(null, "Operação efetuada com sucesso!");
 
         } catch (Exception e) {
